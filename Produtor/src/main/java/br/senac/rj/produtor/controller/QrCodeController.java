@@ -17,7 +17,7 @@ import br.senac.rj.produtor.util.GeradorQrCode;
 @RequestMapping("/gerador-qr-code")
 public class QrCodeController {
 	
-	private static final String QR_CODE_IMAGE_PATH = "C://Desenvolvimento//qrcode.png";
+	private static final String QR_CODE_IMAGE_PATH = "C:/temp/qrcode.png";
 	
 	@GetMapping("/getqrcode")
 	@ResponseBody
@@ -29,7 +29,7 @@ public class QrCodeController {
 			e.printStackTrace();
 		}
 		
-		return QR_CODE_IMAGE_PATH;
+		return "qrcode.png";
 	}
 
 }
