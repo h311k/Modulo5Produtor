@@ -10,12 +10,14 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 import br.senac.rj.produtor.domain.Acessorio;
+import br.senac.rj.produtor.domain.Bloco;
 import br.senac.rj.produtor.domain.Carro;
 import br.senac.rj.produtor.domain.Chave;
 import br.senac.rj.produtor.domain.Documento;
 import br.senac.rj.produtor.domain.Fabricante;
 import br.senac.rj.produtor.domain.Motorista;
 import br.senac.rj.produtor.repository.AcessorioRepository;
+import br.senac.rj.produtor.repository.BlocoRepository;
 import br.senac.rj.produtor.repository.CarroRepository;
 import br.senac.rj.produtor.repository.ChaveRepository;
 import br.senac.rj.produtor.repository.DocumentoRepository;
@@ -42,6 +44,9 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 	
 	@Autowired
 	AcessorioRepository acessorioRepository;
+	
+	@Autowired
+	BlocoRepository blocoRepository;
 	
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
@@ -201,6 +206,10 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 		carro.getAcessorios().add(acessorios.get(2));
 		carros.add(carro);
 		carroRepository.saveAll(carros);
+		
+		Bloco bloco = new Bloco();
+		bloco.setCor("verde");
+		blocoRepository.save(bloco);
 		
 	}
 
