@@ -1,6 +1,7 @@
 package br.senac.rj.produtor.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -14,6 +15,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "carros")
@@ -35,6 +40,10 @@ private static final long serialVersionUID = 1L;
 	
 	@Column(length = 45)
 	private String nome;
+	
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+	private Date dataFabricacao;
 	
 	@ManyToOne
 	@JoinColumn(name="motorista_id")
@@ -78,6 +87,14 @@ private static final long serialVersionUID = 1L;
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public Date getDataFabricacao() {
+		return dataFabricacao;
+	}
+
+	public void setDataFabricacao(Date dataFabricacao) {
+		this.dataFabricacao = dataFabricacao;
 	}
 
 	public Motorista getMotorista() {

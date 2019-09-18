@@ -1,5 +1,7 @@
 package br.senac.rj.produtor.service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,16 @@ public class CarroService {
 	
 	public List<Carro> listAll() {
 		return repository.findAll();
+	}
+	
+	public List<Carro> listPorDataFabricacao(String dataInicial, String dataFinal) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			return repository.findAllByDataFabricacaoBetween(sdf.parse(dataInicial), sdf.parse(dataFinal));
+		} catch (ParseException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 }

@@ -1,5 +1,7 @@
 package br.senac.rj.produtor.init;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -57,6 +59,8 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 		List<Documento> documentos = new ArrayList<>();
 		List<Chave> chaves = new ArrayList<>();
 		List<Acessorio> acessorios = new ArrayList<>();
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
 		
 		Fabricante fabricante = new Fabricante();
@@ -145,6 +149,11 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 		carro.setDocumento(documentos.get(0));
 		carro.setChave(chaves.get(0));
 		carro.setNome("Linea");
+		try {
+			carro.setDataFabricacao(sdf.parse("01/02/2004"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		carro.setAcessorios(new ArrayList<Acessorio>());
 		carro.getAcessorios().add(acessorios.get(0));
 		carro.getAcessorios().add(acessorios.get(3));
@@ -156,6 +165,11 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 		carro.setDocumento(documentos.get(1));
 		carro.setChave(chaves.get(1));
 		carro.setNome("Focus");
+		try {
+			carro.setDataFabricacao(sdf.parse("15/09/2013"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		carro.setAcessorios(new ArrayList<Acessorio>());
 		carro.getAcessorios().add(acessorios.get(0));
 		carro.getAcessorios().add(acessorios.get(1));
@@ -168,6 +182,11 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 		carro.setDocumento(documentos.get(2));
 		carro.setChave(chaves.get(2));
 		carro.setNome("Cobalt");
+		try {
+			carro.setDataFabricacao(sdf.parse("30/08/2014"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		carro.setAcessorios(new ArrayList<Acessorio>());
 		carro.getAcessorios().add(acessorios.get(2));
 		carro.getAcessorios().add(acessorios.get(3));
@@ -180,6 +199,11 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 		carro.setDocumento(documentos.get(3));
 		carro.setChave(chaves.get(3));
 		carro.setNome("Polo");
+		try {
+			carro.setDataFabricacao(sdf.parse("10/08/2017"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		carro.setAcessorios(new ArrayList<Acessorio>());
 		carro.getAcessorios().add(acessorios.get(0));
 		carro.getAcessorios().add(acessorios.get(1));
@@ -187,11 +211,16 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 		carro.getAcessorios().add(acessorios.get(4));
 		carros.add(carro);
 		carro = new Carro();
-		carro.setFabricante(fabricantes.get(4));
+		carro.setFabricante(fabricantes.get(3));
 		carro.setMotorista(motoristas.get(4));
 		carro.setDocumento(documentos.get(4));
 		carro.setChave(chaves.get(4));
 		carro.setNome("Sandero");
+		try {
+			carro.setDataFabricacao(sdf.parse("20/07/2017"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		carro.setAcessorios(new ArrayList<Acessorio>());
 		carro.getAcessorios().add(acessorios.get(0));
 		carro.getAcessorios().add(acessorios.get(1));
@@ -202,6 +231,11 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 		carro.setDocumento(documentos.get(5));
 		carro.setChave(chaves.get(5));
 		carro.setNome("Versa");
+		try {
+			carro.setDataFabricacao(sdf.parse("15/08/2017"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		carro.setAcessorios(new ArrayList<Acessorio>());
 		carro.getAcessorios().add(acessorios.get(2));
 		carros.add(carro);
